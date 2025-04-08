@@ -1,0 +1,303 @@
+[
+  {
+    "id": 1,
+    "bank": "Alfa Bank",
+    "strategy": "Basic Strategy",
+    "cardNumber": "5466 3597 2315 1547",
+    "phoneNumber": "+7 (928) 487-44-59",
+    "owner": "Colby Hartman",
+    "dailyLimit": {
+      "used": 0,
+      "total": 400000
+    },
+    "monthlyLimit": {
+      "used": 254511,
+      "total": 5000000
+    },
+    "device": {
+      "name": "Samsung Galaxy S25",
+      "version": "v0.4.3",
+      "available": true
+    },
+    "isNew": true,
+    "isMax": true,
+    "isSberPrime": false,
+    "isActive": false
+  },
+  {
+    "id": 2,
+    "bank": "SberBank",
+    "strategy": "Extended Strategy",
+    "cardNumber": "4358 5848 1296 0413",
+    "phoneNumber": "+7 (973) 090-14-68",
+    "owner": "Anika Lynch",
+    "dailyLimit": {
+      "used": 320000,
+      "total": 800000
+    },
+    "monthlyLimit": {
+      "used": 2400000,
+      "total": 3000000
+    },
+    "device": {
+      "name": null,
+      "version": null,
+      "available": false
+    },
+    "isActive": true,
+
+    "isNew": false,
+    "isMax": false,
+    "isSberPrime": true
+  },
+  {
+    "id": 3,
+    "bank": "T-Bank",
+    "strategy": "Normal Strategy",
+    "cardNumber": "7899 1493 0378 4859",
+    "phoneNumber": "+7 (945) 980-04-14",
+    "owner": "Lowri Pugh",
+    "dailyLimit": {
+      "used": 900000,
+      "total": 1200000
+    },
+    "monthlyLimit": {
+      "used": 1900000,
+      "total": 2000000
+    },
+    "device": {
+      "name": "Vivo X100 Pro",
+      "version": "v0.4",
+      "available": true
+    },
+    "isNew": true,
+    "isMax": false,
+    "isSberPrime": false,
+    "isActive": true
+  },
+  {
+    "id": 4,
+    "bank": "T-Bank",
+    "strategy": "Normal Strategy",
+    "cardNumber": "5466 3597 2315 1547",
+    "phoneNumber": "+7 (981) 149-68-26",
+    "owner": "Alessandro Dunlap",
+    "dailyLimit": {
+      "used": 794000,
+      "total": 800000
+    },
+    "monthlyLimit": {
+      "used": 940000,
+      "total": 5000000
+    },
+    "device": {
+      "name": "Asus ROG Phone 8",
+      "version": "v0.4.2",
+      "available": false
+    },
+    "isNew": true,
+    "isMax": true,
+    "isSberPrime": false,
+    "isActive": true
+  },
+  {
+    "id": 5,
+    "bank": "SberBank",
+    "strategy": "Basic Strategy",
+    "cardNumber": "1290 6839 9012 4976",
+    "phoneNumber": "+7 (990) 482-12-04",
+    "owner": "Adrian Castaneda",
+    "dailyLimit": {
+      "used": 42000,
+      "total": 400000
+    },
+    "monthlyLimit": {
+      "used": 820496,
+      "total": 4000000
+    },
+    "device": {
+      "name": "Samsung Galaxy S25",
+      "version": "v0.4.3",
+      "available": true
+    },
+    "isNew": true,
+    "isMax": false,
+    "isSberPrime": true,
+    "isActive": true
+  },
+  {
+    "id": 6,
+    "bank": "Alfa Bank",
+    "strategy": "Extended Strategy",
+    "cardNumber": "3094 2485 6812 4890",
+    "phoneNumber": "+7 (902) 800-17-44",
+    "owner": "Darcy Hall",
+    "dailyLimit": {
+      "used": 28000,
+      "total": 200000
+    },
+    "monthlyLimit": {
+      "used": 890124,
+      "total": 5000000
+    },
+    "device": {
+      "name": "Samsung Galaxy S25",
+      "version": "v0.4.3",
+      "available": true
+    },
+    "isNew": false,
+    "isMax": true,
+    "isSberPrime": false,
+    "isActive": true
+  },
+  {
+    "id": 7,
+    "bank": "SberBank",
+    "strategy": "Basic Strategy",
+    "cardNumber": "4019 3899 1274 4971",
+    "phoneNumber": "+7 (944) 190-25-59",
+    "owner": "Judith Huffman",
+    "dailyLimit": {
+      "used": 67000,
+      "total": 700000
+    },
+    "monthlyLimit": {
+      "used": 1240000,
+      "total": 6000000
+    },
+    "device": {
+      "name": "Samsung Galaxy S25",
+      "version": "v0.4.3",
+      "available": true
+    },
+    "isNew": true,
+    "isMax": true,
+    "isSberPrime": true,
+    "isActive": true
+  },
+  {
+    "id": 8,
+    "bank": "T-Bank",
+    "strategy": "Normal Strategy",
+    "cardNumber": "3904 8901 2479 4977",
+    "phoneNumber": "+7 (980) 249-64-01",
+    "owner": "Carlo Strong",
+    "dailyLimit": {
+      "used": 4000,
+      "total": 350000
+    },
+    "monthlyLimit": {
+      "used": 439800,
+      "total": 1000000
+    },
+    "device": {
+      "name": "Samsung Galaxy S25",
+      "version": "v0.4.3",
+      "available": false
+    },
+    "isNew": true,
+    "isMax": false,
+    "isSberPrime": false,
+    "isActive": true
+  },
+  {
+    "id": 9,
+    "bank": "SberBank",
+    "strategy": "Basic Strategy",
+    "cardNumber": "4123 9876 5432 1098",
+    "phoneNumber": "+7 (921) 345-67-88",
+    "owner": "Leona Whitaker",
+    "dailyLimit": {
+      "used": 95000,
+      "total": 250000
+    },
+    "monthlyLimit": {
+      "used": 1200543,
+      "total": 4000000
+    },
+    "device": {
+      "name": "Google Pixel 7a",
+      "version": "v2.0.1",
+      "available": true
+    },
+    "isNew": true,
+    "isMax": false,
+    "isSberPrime": true,
+    "isActive": true
+  },
+  {
+    "id": 10,
+    "bank": "Alfa Bank",
+    "strategy": "Extended Strategy",
+    "cardNumber": "5234 6789 0123 4567",
+    "phoneNumber": "+7 (915) 678-45-21",
+    "owner": "Marcos Villarreal",
+    "dailyLimit": {
+      "used": 180000,
+      "total": 300000
+    },
+    "monthlyLimit": {
+      "used": 2950000,
+      "total": 5000000
+    },
+    "device": {
+      "name": "OnePlus 12",
+      "version": "v1.1.9",
+      "available": true
+    },
+    "isNew": false,
+    "isMax": true,
+    "isSberPrime": false,
+    "isActive": true
+  },
+  {
+    "id": 11,
+    "bank": "SberBank",
+    "strategy": "Basic Strategy",
+    "cardNumber": "6011 2233 4455 6677",
+    "phoneNumber": "+7 (938) 112-23-45",
+    "owner": "Tanner Wallace",
+    "dailyLimit": {
+      "used": 123000,
+      "total": 250000
+    },
+    "monthlyLimit": {
+      "used": 2155000,
+      "total": 5000000
+    },
+    "device": {
+      "name": "Nothing Phone (2)",
+      "version": "v3.0.0",
+      "available": false
+    },
+    "isNew": true,
+    "isMax": false,
+    "isSberPrime": true,
+    "isActive": true
+  },
+  {
+    "id": 12,
+    "bank": "Alfa Bank",
+    "strategy": "Extended Strategy",
+    "cardNumber": "3742 0000 0001 2345",
+    "phoneNumber": "+7 (977) 456-78-90",
+    "owner": "Elina Mendez",
+    "dailyLimit": {
+      "used": 50000,
+      "total": 150000
+    },
+    "monthlyLimit": {
+      "used": 789000,
+      "total": 2000000
+    },
+    "device": {
+      "name": "Sony Xperia 5 V",
+      "version": "v2.3.5",
+      "available": true
+    },
+    "isNew": false,
+    "isMax": true,
+    "isSberPrime": false,
+    "isActive": true
+  }
+]
