@@ -3,6 +3,7 @@ import React from 'react';
 import { Layout, theme } from 'antd';
 import { Logo } from '@/components/ui/Logo';
 import { SideBarMenu } from './components/SideBar/SideBarMenu';
+import { Outlet } from 'react-router-dom';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -52,7 +53,9 @@ export const AppLayout = () => {
             background: colorBgContainer,
           }}
         />
-        <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}></Content>
+        <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
+          <Outlet />
+        </Content>
         <Footer style={{ textAlign: 'center', borderTop: '1px solid #161616' }}>
           Ant Design ©{new Date().getFullYear()} Created by Ant UED
         </Footer>
