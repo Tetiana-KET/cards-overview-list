@@ -1,70 +1,21 @@
-@use './mixins.scss' as mix;
-@use './variables.scss' as var;
-
-html {
-	scroll-behavior: smooth;
-}
-
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-:root {
-	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-	line-height: 1.5;
-	font-weight: 400;
-	font-synthesis: none;
-	text-rendering: optimizelegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+.ant-menu-item,
+.ant-menu-submenu-title {
+  height: 45px !important;
+  margin-block: 3px !important;
 }
 
-[class*='__container'] {
-	@include mix.container;
-	@include mix.flex;
+.ant-menu-sub {
+  padding-inline: 25px !important;
 }
 
-#app {
-	width: 100%;
-	min-height: 100vh;
-
-	@include mix.flex-col;
-}
-
-body {
-	margin: 0;
-	min-width: 300px;
-	min-height: 100vh;
-	overflow-x: hidden;
-}
-
-.no-scroll {
-	overflow: hidden;
-}
-
-img {
-	width: 100%;
-	height: auto;
-	display: block;
-}
-
-a {
-	display: block;
-	height: 100%;
-}
-
-button {
-	padding: 0;
-	outline: none;
-	border: none;
-	background-color: transparent;
-	cursor: pointer;
-}
-
-.main {
-	width: 100%;
-	flex: 1;
-	position: relative;
-
-	@include mix.flex-col;
+:where(.css-dev-only-do-not-override-1atsavp) .ant-menu-light.ant-menu-inline .ant-menu-sub.ant-menu-inline,
+:where(.css-dev-only-do-not-override-1atsavp)
+  .ant-menu-light
+  > .ant-menu.ant-menu-inline
+  .ant-menu-sub.ant-menu-inline {
+  background: none !important;
 }
