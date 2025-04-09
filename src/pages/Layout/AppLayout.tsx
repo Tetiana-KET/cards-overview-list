@@ -4,6 +4,8 @@ import { Layout, theme } from 'antd';
 import { Logo } from '@/components/ui/Logo';
 import { SideBarMenu } from './components/SideBar/SideBarMenu';
 import { Outlet } from 'react-router-dom';
+import { Breadcrumbs } from './components/Breadcrumbs/Breadcrumbs';
+import { LoginBlock } from './components/LoginBlock';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -25,6 +27,9 @@ const headerStyle: React.CSSProperties = {
   padding: '18px 64px',
   height: '80px',
   borderBottom: '1px solid #161616',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
 };
 
 export const AppLayout = () => {
@@ -52,7 +57,10 @@ export const AppLayout = () => {
             ...headerStyle,
             background: colorBgContainer,
           }}
-        />
+        >
+          <Breadcrumbs />
+          <LoginBlock />
+        </Header>
         <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
           <Outlet />
         </Content>
