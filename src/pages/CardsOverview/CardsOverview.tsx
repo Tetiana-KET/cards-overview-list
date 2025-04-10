@@ -3,6 +3,10 @@ import { Search } from './components/Search';
 import { Sort } from './components/Sort';
 import { View } from './components/View';
 import { Filter } from './components/Filter';
+import { Flex } from 'antd';
+import cardsraw from '../../data/cardsMock.json';
+import { CardModel } from '@/models/CardModel';
+import { CardComponent } from './components/CardComponent';
 
 const counterStyle: CSSProperties = {
   display: 'inline-flex',
@@ -14,14 +18,33 @@ const counterStyle: CSSProperties = {
 };
 
 export const CardsOverview = () => {
+  const cardsMock: CardModel[] = cardsraw as CardModel[];
+
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedBank, setSelectedBank] = useState('');
   const [selectedStrategy, setSelectedStrategy] = useState('');
-  const [selectedStatus, setSelectedStatus] = useState('');
+  const [selectedStatus, setSelectedStatus] = useState(''); // For filtering
   const [selectedCardType, setSelectedCardType] = useState('');
   const [selectedTag, setSelectedTag] = useState('');
   const [viewMode, setViewMode] = useState('');
   const [sortBy, setSortBy] = useState('');
+
+  // isActive status of each card
+  const [cardStatuses, setCardStatuses] = useState<Record<number, boolean>>(
+    cardsMock.reduce(
+      (acc, card) => {
+        acc[card.id] = card.isActive;
+        return acc;
+      },
+      {} as Record<number, boolean>,
+    ),
+  );
+
+  // Filter cards based on selectedStatus
+  const filteredCards = cardsMock.filter((card) => {
+    if (selectedStatus === '') return true;
+    return selectedStatus === 'active' ? cardStatuses[card.id] : !cardStatuses[card.id];
+  });
 
   const filterProps = {
     selectedBank,
@@ -36,26 +59,51 @@ export const CardsOverview = () => {
     setSelectedTag,
   };
 
-  return (
-    <div style={{ display: 'flex', justifyContent: 'space-between', position: 'relative' }}>
-      <div style={{ display: 'flex' }}>
-        <h2
-          style={{
-            lineHeight: '32px',
-            fontSize: '24px',
-          }}
-        >
-          Cards
-        </h2>
-        <span style={counterStyle}>128</span>
-      </div>
+  const handleCardStatusChange = (id: number, checked: boolean) => {
+    setCardStatuses((prevState) => ({
+      ...prevState,
+      [id]: checked,
+    }));
 
-      <div style={{ display: 'flex', gap: '12px' }}>
-        <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-        <View viewMode={viewMode} setViewMode={setViewMode} />
-        <Sort sortBy={sortBy} setSortBy={setSortBy} />
-        <Filter {...filterProps} />
-      </div>
-    </div>
+    // API call here to update the status in the DB
+    console.log(`Card ID: ${id} active status updated to: ${checked}`);
+  };
+
+  return (
+    <Flex vertical gap={32}>
+      {/* HEADER */}
+      <Flex vertical={false} justify="space-between" wrap gap={20}>
+        {/* TITLE */}
+        <Flex vertical={false}>
+          <h2
+            style={{
+              lineHeight: '32px',
+              fontSize: '24px',
+            }}
+          >
+            Cards
+          </h2>
+          <span style={counterStyle}>{cardsMock.length}</span>
+        </Flex>
+        {/* ACTIONS */}
+        <Flex vertical={false} gap={12} wrap justify="center">
+          <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+          <View viewMode={viewMode} setViewMode={setViewMode} />
+          <Sort sortBy={sortBy} setSortBy={setSortBy} />
+          <Filter {...filterProps} />
+        </Flex>
+      </Flex>
+      {/* WRAPPER FOR CARDS */}
+      <Flex vertical={viewMode === 'vertical'} gap={12} wrap justify="center">
+        {filteredCards &&
+          filteredCards.map((card) => (
+            <CardComponent
+              key={`${card.id}_${card.cardNumber}`}
+              card={{ ...card, isActive: cardStatuses[card.id] }}
+              onChange={handleCardStatusChange}
+            />
+          ))}
+      </Flex>
+    </Flex>
   );
 };

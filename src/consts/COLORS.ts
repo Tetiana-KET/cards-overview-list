@@ -1,0 +1,17 @@
+export type AntDColor =
+  | 'gold'
+  | 'green'
+  | 'red'
+  | 'default'
+  | 'primary'
+  | 'danger'
+  | 'blue'
+  | 'purple'
+  | 'cyan'
+  | 'magenta'
+  | 'pink'
+  | 'orange'
+  | 'yellow'
+  | 'volcano'
+  | 'geekblue'
+  | 'lime';

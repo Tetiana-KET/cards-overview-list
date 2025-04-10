@@ -100,8 +100,8 @@ export const Filter = (props: FilterProps) => {
               style={{ width: '100%', marginBottom: '10px' }}
             >
               {BANKS.map((bank) => (
-                <Option key={bank} value={bank}>
-                  {bank}
+                <Option key={bank.name} value={bank.name.toLowerCase().replace(/\s+/g, '')}>
+                  {bank.name}
                 </Option>
               ))}
             </Select>
@@ -114,7 +114,7 @@ export const Filter = (props: FilterProps) => {
               style={{ width: '100%', marginBottom: '10px' }}
             >
               {STRATEGIES.map((strategy) => (
-                <Option key={strategy} value={strategy}>
+                <Option key={strategy} value={strategy.toLowerCase()}>
                   {strategy}
                 </Option>
               ))}
@@ -128,7 +128,7 @@ export const Filter = (props: FilterProps) => {
               style={{ width: '100%', marginBottom: '10px' }}
             >
               {STATUSES.map((status) => (
-                <Option key={status} value={status}>
+                <Option key={status} value={status.toLowerCase()}>
                   {status}
                 </Option>
               ))}
@@ -142,7 +142,7 @@ export const Filter = (props: FilterProps) => {
               style={{ width: '100%', marginBottom: '10px' }}
             >
               {CARD_TYPES.map((cardType) => (
-                <Option key={cardType} value={cardType}>
+                <Option key={cardType} value={cardType.toLowerCase()}>
                   {cardType}
                 </Option>
               ))}
@@ -156,7 +156,7 @@ export const Filter = (props: FilterProps) => {
               style={{ width: '100%' }}
             >
               {TAGS.map((tag) => (
-                <Option key={tag} value={tag}>
+                <Option key={tag} value={tag.toLowerCase()}>
                   {tag}
                 </Option>
               ))}

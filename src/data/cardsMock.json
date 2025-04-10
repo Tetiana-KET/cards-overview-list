@@ -17,6 +17,7 @@
     "device": {
       "name": "Samsung Galaxy S25",
       "version": "v0.4.3",
+      "percent": "76",
       "available": true
     },
     "isNew": true,
@@ -42,6 +43,7 @@
     "device": {
       "name": null,
       "version": null,
+      "percent": "0",
       "available": false
     },
     "isActive": true,
@@ -68,6 +70,7 @@
     "device": {
       "name": "Vivo X100 Pro",
       "version": "v0.4",
+      "percent": "55",
       "available": true
     },
     "isNew": true,
@@ -93,6 +96,7 @@
     "device": {
       "name": "Asus ROG Phone 8",
       "version": "v0.4.2",
+      "percent": "0",
       "available": false
     },
     "isNew": true,
@@ -118,6 +122,7 @@
     "device": {
       "name": "Samsung Galaxy S25",
       "version": "v0.4.3",
+      "percent": "67",
       "available": true
     },
     "isNew": true,
@@ -143,6 +148,7 @@
     "device": {
       "name": "Samsung Galaxy S25",
       "version": "v0.4.3",
+      "percent": "11",
       "available": true
     },
     "isNew": false,
@@ -168,6 +174,7 @@
     "device": {
       "name": "Samsung Galaxy S25",
       "version": "v0.4.3",
+      "percent": "23",
       "available": true
     },
     "isNew": true,
@@ -193,6 +200,7 @@
     "device": {
       "name": "Samsung Galaxy S25",
       "version": "v0.4.3",
+      "percent": "0",
       "available": false
     },
     "isNew": true,
@@ -218,6 +226,7 @@
     "device": {
       "name": "Google Pixel 7a",
       "version": "v2.0.1",
+      "percent": "51",
       "available": true
     },
     "isNew": true,
@@ -243,6 +252,7 @@
     "device": {
       "name": "OnePlus 12",
       "version": "v1.1.9",
+      "percent": "45",
       "available": true
     },
     "isNew": false,
@@ -268,6 +278,7 @@
     "device": {
       "name": "Nothing Phone (2)",
       "version": "v3.0.0",
+      "percent": "72",
       "available": false
     },
     "isNew": true,
@@ -293,6 +304,7 @@
     "device": {
       "name": "Sony Xperia 5 V",
       "version": "v2.3.5",
+      "percent": "15",
       "available": true
     },
     "isNew": false,
