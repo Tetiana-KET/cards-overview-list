@@ -1,4 +1,4 @@
-import { CSSProperties, useEffect, useState } from 'react';
+import { CSSProperties, useCallback, useEffect, useMemo, useState } from 'react';
 import { Search } from './components/Search';
 import { Sort } from './components/Sort';
 import { View } from './components/View';
@@ -58,21 +58,30 @@ export const CardsOverview = () => {
     ),
   );
 
-  const filteredCards = sortCards(
-    cardsMock.filter((card) => {
-      if (selectedStatus === '') return true;
-      return selectedStatus === 'active' ? cardStatuses[card.id] : !cardStatuses[card.id];
-    }),
-    sortBy,
-  ).filter((card) => {
-    if (debouncedSearchQuery === '') return true;
+  const filteredCards = useMemo(
+    () =>
+      sortCards(
+        cardsMock.filter((card) => {
+          if (selectedStatus === '') return true;
+          return selectedStatus === 'active' ? cardStatuses[card.id] : !cardStatuses[card.id];
+        }),
+        sortBy,
+      ),
+    [selectedStatus, cardStatuses, cardsMock, sortBy],
+  );
 
-    return (
-      card.cardNumber.includes(debouncedSearchQuery) ||
-      card.phoneNumber.includes(debouncedSearchQuery) ||
-      card.owner.toLowerCase().includes(debouncedSearchQuery)
-    );
-  });
+  const cardsToRender = useMemo(() => {
+    if (debouncedSearchQuery === '') {
+      return filteredCards;
+    }
+    return filteredCards.filter((card) => {
+      return (
+        card.cardNumber.includes(debouncedSearchQuery) ||
+        card.phoneNumber.includes(debouncedSearchQuery) ||
+        card.owner.toLowerCase().includes(debouncedSearchQuery)
+      );
+    });
+  }, [debouncedSearchQuery, filteredCards]);
 
   const filterProps = {
     selectedBank,
@@ -123,8 +132,8 @@ export const CardsOverview = () => {
       </Flex>
       {/* WRAPPER FOR CARDS */}
       <Flex vertical={viewModeForStyles === 'vertical'} gap={12} wrap justify="center">
-        {filteredCards &&
-          filteredCards.map((card) => (
+        {cardsToRender &&
+          cardsToRender.map((card) => (
             <CardComponent
               key={`${card.id}_${card.cardNumber}`}
               card={{ ...card, isActive: cardStatuses[card.id] }}

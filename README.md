@@ -2,6 +2,8 @@
 
 ## [Deploy](https://admin-cards-overview.netlify.app)
 
+## [Figma Design](https://www.figma.com/design/678kpzMEcvNvU7ixP2awCy/Admin?node-id=0-2960&t=XaJUMuRqGLkQyQv7-0)
+
 ## Description
 
 ## Key features:

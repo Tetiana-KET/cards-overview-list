@@ -8,7 +8,6 @@ interface SortProps {
 export const Sort = ({ sortBy, setSortBy }: SortProps) => {
   const handleChange = (value: string) => {
     setSortBy(value);
-    console.log(`sort by: ${value}`);
   };
 
   return (

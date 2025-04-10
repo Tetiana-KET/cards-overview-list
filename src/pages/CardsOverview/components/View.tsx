@@ -8,7 +8,6 @@ interface ViewProps {
 export const View = ({ viewMode, setViewMode }: ViewProps) => {
   const handleChange = (value: string) => {
     setViewMode(value);
-    console.log(`selected view mode: ${value}`);
   };
 
   return (

@@ -112,7 +112,7 @@ export const CardComponent = ({ card, onChange, mode }: CardComponentProp) => {
               color={bankInfo?.color || 'default'}
               style={{ pointerEvents: 'none', width: '24px', height: '24px', padding: '0' }}
             >
-              <img src={bankInfo?.imgPath} alt={`${bankInfo?.name} logo`} />
+              <img src={bankInfo?.imgPath} alt={`${bankInfo?.name} logo`} loading="lazy" />
             </Button>
             <span style={{ fontWeight: '600', fontSize: '16px' }}>{bankInfo?.name}</span>
             <Button variant="outlined" color="default" size="small" style={{ pointerEvents: 'none', fontSize: '12px' }}>
