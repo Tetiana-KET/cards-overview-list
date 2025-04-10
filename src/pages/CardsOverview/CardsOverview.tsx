@@ -1,4 +1,4 @@
-import { CSSProperties, useCallback, useEffect, useMemo, useState } from 'react';
+import { CSSProperties, useEffect, useMemo, useState } from 'react';
 import { Search } from './components/Search';
 import { Sort } from './components/Sort';
 import { View } from './components/View';
@@ -62,12 +62,17 @@ export const CardsOverview = () => {
     () =>
       sortCards(
         cardsMock.filter((card) => {
-          if (selectedStatus === '') return true;
-          return selectedStatus === 'active' ? cardStatuses[card.id] : !cardStatuses[card.id];
+          const statusFilter =
+            selectedStatus === '' || (selectedStatus === 'active' ? cardStatuses[card.id] : !cardStatuses[card.id]);
+          const bankFilter = selectedBank === '' || card.bank.toLowerCase() === selectedBank.toLowerCase();
+          const strategyFilter =
+            selectedStrategy === '' || card.strategy.toLowerCase() === selectedStrategy.toLowerCase();
+
+          return statusFilter && bankFilter && strategyFilter;
         }),
         sortBy,
       ),
-    [selectedStatus, cardStatuses, cardsMock, sortBy],
+    [selectedBank, selectedStrategy, selectedStatus, selectedCardType, selectedTag, cardStatuses, cardsMock, sortBy],
   );
 
   const cardsToRender = useMemo(() => {
