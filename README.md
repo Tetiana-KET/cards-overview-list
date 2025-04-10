@@ -6,7 +6,24 @@
 
 ## Description
 
+This project is an admin panel designed for managing and viewing various bank cards. The app allows users to view and filter a list of cards with different owners and banks. The functionality includes search, filters, and various display options.
+
 ## Key features:
+
+- Fully responsive application, optimized down to 320px width.
+- Sidebar collapses on the breakpoint ≥ 576px, with a small portion of the icons visible.
+- Breadcrumb navigation works for easy page navigation.
+- Currently, there is only one functional page (the card/overview page), with a placeholder for other potential pages.
+- Search functionality with debounce implementation (using lodash).
+- Toggle between grid and list display modes via a select menu.
+- Filters available for daily and monthly limits (both ascending and descending).
+- Filters are also available for bank, strategy, and card status.
+- Filters can be reset using the "Reset All" button.
+
+## TODO
+
+- _Filtering by tags and card type still requires further development_.
+- _Pagination_
 
 ## Technology stack
 
@@ -21,7 +38,10 @@
 
 ## Visuals
 
-# Installation
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-3.png)
+![alt text](image-2.png)
 
 ### Prerequisites
 

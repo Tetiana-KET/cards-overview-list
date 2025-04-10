@@ -9,7 +9,7 @@ import { formatNumber } from '@/utils/formatNumber';
 const cardGridStyle: React.CSSProperties = {
   flex: '1 1 23%',
   maxWidth: '385px',
-  minWidth: '295px',
+  minWidth: '275px',
   background: '#0D0D0D',
 };
 
