@@ -1,6 +1,6 @@
 import { CardsOverview } from '@/pages/CardsOverview/CardsOverview';
 import { AppLayout } from '@/pages/Layout/AppLayout';
-import { OtherPage } from '@/pages/OtherPage/OtherPage';
+import { PagePlaceHolder } from '@/pages/PagePlaceHolder/PagePlaceHolder';
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 
 const router = createBrowserRouter([
@@ -9,28 +9,28 @@ const router = createBrowserRouter([
     element: <AppLayout />,
     children: [
       { index: true, element: <Navigate to="/cards/overview" replace /> },
-      { path: 'users', element: <OtherPage /> },
-      { path: 'roles', element: <OtherPage /> },
+      { path: 'users', element: <PagePlaceHolder /> },
+      { path: 'roles', element: <PagePlaceHolder /> },
       {
         path: 'tickets',
 
         children: [
-          { path: 'overview', element: <OtherPage /> },
-          { path: 'analytics', element: <OtherPage /> },
+          { path: 'overview', element: <PagePlaceHolder /> },
+          { path: 'analytics', element: <PagePlaceHolder /> },
         ],
       },
-      { path: 'orders', element: <OtherPage /> },
+      { path: 'orders', element: <PagePlaceHolder /> },
       {
         path: 'cards',
         children: [
           { path: 'overview', element: <CardsOverview /> },
-          { path: 'analytics', element: <OtherPage /> },
+          { path: 'analytics', element: <PagePlaceHolder /> },
         ],
       },
-      { path: 'devices', element: <OtherPage /> },
-      { path: 'notifications', element: <OtherPage /> },
-      { path: 'trading-pairs', element: <OtherPage /> },
-      { path: 'teams', element: <OtherPage /> },
+      { path: 'devices', element: <PagePlaceHolder /> },
+      { path: 'notifications', element: <PagePlaceHolder /> },
+      { path: 'trading-pairs', element: <PagePlaceHolder /> },
+      { path: 'teams', element: <PagePlaceHolder /> },
     ],
   },
 ]);

@@ -19,3 +19,14 @@
   .ant-menu-sub.ant-menu-inline {
   background: none !important;
 }
+
+:where(.css-dev-only-do-not-override-1atsavp).ant-select-single.ant-select-show-arrow .ant-select-selection-item,
+:where(.css-dev-only-do-not-override-1atsavp).ant-select-single.ant-select-show-arrow .ant-select-selection-search,
+:where(.css-dev-only-do-not-override-1atsavp).ant-select-single.ant-select-show-arrow
+  .ant-select-selection-placeholder {
+  padding-inline-end: 60px;
+}
+
+:where(.css-dev-only-do-not-override-1atsavp).ant-select-single .ant-select-selector {
+  color: #5d5d5d;
+}

@@ -61,7 +61,7 @@ export const AppLayout = () => {
           <Breadcrumbs />
           <LoginBlock />
         </Header>
-        <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
+        <Content style={{ margin: '48px 64px', overflow: 'initial' }}>
           <Outlet />
         </Content>
         <Footer style={{ textAlign: 'center', borderTop: '1px solid #161616' }}>

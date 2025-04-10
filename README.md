@@ -10,20 +10,12 @@
 
 - Language: [**TypeScript**](https://www.typescriptlang.org/)
 - Main library: [**React**](https://react.dev/)
-<!-- - The React Framework: [**Next.js**](https://nextjs.org/) -->
 - Linters: [**ESLint**](https://eslint.org/), [**Prettier**](https://prettier.io/)
 - Styling: [**SCSS**](https://sass-lang.com/)
-  <!-- - Pre-push/Pre-commit: [**Husky**](https://typicode.github.io/husky/) -->
-  <!-- - UI library: [**NextUI**](https://nextui.org/docs/guide/introduction#what-is-nextui) -->
+- UI library: [**Ant Design**](https://ant.design/)
 - Builder: [**Vite**](https://vitejs.dev/)
-<!-- - Tests: [**Vitest**](https://vitest.dev/) -->
 - Routing: [**React Router**](https://reactrouter.com/en/main)
-  <!-- - Routing: [**Next.js App Router**](https://nextjs.org/docs/app/building-your-application/routing) -->
-  <!-- - API: [**@commercetools/sdk-client-v2, @commercetools/platform-sdk**](https://docs.commercetools.com/sdk/javascript-sdk) -->
-  <!-- - Hosting: [**Vercel**](https://vercel.com/) -->
 - Hosting: [**Netlify**](https://www.netlify.com/)
-<!-- - Task Board: [**GitHub Pages**](https://github.com/users/Tetiana-KET/projects/3/views/2)
-- Code style: [**Wiki**]() -->
 
 ## Visuals
 
