@@ -15,7 +15,7 @@ export const Search = ({ searchQuery, setSearchQuery }: SearchProps) => {
         prefix={<SearchOutlined style={{ color: '#DEDEDE', marginRight: '8px' }} />}
         type="text"
         value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
+        onChange={(e) => setSearchQuery(e.target.value.toLocaleLowerCase())}
       />
     </form>
   );

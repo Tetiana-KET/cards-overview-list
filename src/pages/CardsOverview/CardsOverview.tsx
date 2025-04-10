@@ -1,4 +1,4 @@
-import { CSSProperties, useState } from 'react';
+import { CSSProperties, useEffect, useState } from 'react';
 import { Search } from './components/Search';
 import { Sort } from './components/Sort';
 import { View } from './components/View';
@@ -8,6 +8,7 @@ import cardsraw from '../../data/cardsMock.json';
 import { CardModel } from '@/models/CardModel';
 import { CardComponent } from './components/CardComponent';
 import { sortCards } from '@/utils/sortCards';
+import debounce from 'lodash.debounce';
 
 const counterStyle: CSSProperties = {
   display: 'inline-flex',
@@ -21,7 +22,6 @@ const counterStyle: CSSProperties = {
 export const CardsOverview = () => {
   const cardsMock: CardModel[] = cardsraw as CardModel[];
 
-  const [searchQuery, setSearchQuery] = useState('');
   const [selectedBank, setSelectedBank] = useState('');
   const [selectedStrategy, setSelectedStrategy] = useState('');
   const [selectedStatus, setSelectedStatus] = useState(''); // For filtering
@@ -29,6 +29,21 @@ export const CardsOverview = () => {
   const [selectedTag, setSelectedTag] = useState('');
   const [viewMode, setViewMode] = useState('');
   const [sortBy, setSortBy] = useState('');
+
+  const [searchQuery, setSearchQuery] = useState('');
+  const [debouncedSearchQuery, setDebouncedSearchQuery] = useState(searchQuery);
+
+  useEffect(() => {
+    const debounced = debounce(() => {
+      setDebouncedSearchQuery(searchQuery);
+    }, 300);
+
+    debounced();
+
+    return () => {
+      debounced.cancel();
+    };
+  }, [searchQuery]);
 
   const viewModeForStyles = viewMode || 'vertical';
 
@@ -43,14 +58,21 @@ export const CardsOverview = () => {
     ),
   );
 
-  // Filter cards based on selectedStatus
   const filteredCards = sortCards(
     cardsMock.filter((card) => {
       if (selectedStatus === '') return true;
       return selectedStatus === 'active' ? cardStatuses[card.id] : !cardStatuses[card.id];
     }),
     sortBy,
-  );
+  ).filter((card) => {
+    if (debouncedSearchQuery === '') return true;
+
+    return (
+      card.cardNumber.includes(debouncedSearchQuery) ||
+      card.phoneNumber.includes(debouncedSearchQuery) ||
+      card.owner.toLowerCase().includes(debouncedSearchQuery)
+    );
+  });
 
   const filterProps = {
     selectedBank,
