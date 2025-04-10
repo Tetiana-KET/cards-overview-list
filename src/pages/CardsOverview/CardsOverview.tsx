@@ -101,6 +101,7 @@ export const CardsOverview = () => {
               key={`${card.id}_${card.cardNumber}`}
               card={{ ...card, isActive: cardStatuses[card.id] }}
               onChange={handleCardStatusChange}
+              mode={viewMode}
             />
           ))}
       </Flex>

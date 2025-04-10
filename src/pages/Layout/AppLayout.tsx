@@ -25,11 +25,13 @@ const logoWrapStyle = {
 
 const headerStyle: React.CSSProperties = {
   padding: '18px 64px',
-  height: '80px',
+  height: 'fit-content',
   borderBottom: '1px solid #161616',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
+  flexWrap: 'wrap-reverse',
+  gap: '25px',
 };
 
 export const AppLayout = () => {
@@ -41,6 +43,8 @@ export const AppLayout = () => {
     <Layout hasSider>
       <Sider
         width={220}
+        breakpoint="sm"
+        collapsedWidth={30}
         style={{
           ...sideBarStyle,
           backgroundColor: colorBgBase,
@@ -61,7 +65,7 @@ export const AppLayout = () => {
           <Breadcrumbs />
           <LoginBlock />
         </Header>
-        <Content style={{ margin: '48px 64px', overflow: 'initial' }}>
+        <Content style={{ margin: '48px 64px', overflow: 'initial' }} className="responsive-content">
           <Outlet />
         </Content>
         <Footer style={{ textAlign: 'center', borderTop: '1px solid #161616' }}>

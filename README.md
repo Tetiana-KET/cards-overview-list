@@ -1,6 +1,6 @@
-# project name
+# Admin board for cards overview
 
-## [Deploy]()
+## [Deploy](https://admin-cards-overview.netlify.app)
 
 ## Description
 

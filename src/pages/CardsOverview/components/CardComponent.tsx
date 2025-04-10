@@ -3,20 +3,39 @@ import { CardModel } from '@/models/CardModel';
 import { Button, Card, Flex, Progress, Space, Switch } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { Limit } from './Limit';
+import { getPercentage } from '@/utils/getPersentage';
+import { formatNumber } from '@/utils/formatNumber';
 
-const cardStyle: React.CSSProperties = {
+const cardGridStyle: React.CSSProperties = {
   flex: '1 1 23%',
   maxWidth: '385px',
-  minWidth: '280px',
+  minWidth: '295px',
   background: '#0D0D0D',
+};
+
+const cardListStyle: React.CSSProperties = {
+  flex: '1',
+  maxWidth: 'none',
+  width: '100%',
+  background: '#0D0D0D',
+};
+
+const holderNone = {
+  display: 'none',
+};
+
+const holderBlock = {
+  display: 'block',
+  color: '#6C6C6C',
 };
 
 interface CardComponentProp {
   card: CardModel;
   onChange: (id: number, checked: boolean) => void;
+  mode: string;
 }
 
-export const CardComponent = ({ card, onChange }: CardComponentProp) => {
+export const CardComponent = ({ card, onChange, mode }: CardComponentProp) => {
   const {
     id,
     bank,
@@ -76,12 +95,17 @@ export const CardComponent = ({ card, onChange }: CardComponentProp) => {
           )}
         </Flex>
       }
-      style={cardStyle}
+      style={mode === 'horizontal' ? cardGridStyle : cardListStyle}
     >
-      <Flex vertical gap={32}>
+      <Flex
+        vertical={mode === 'horizontal'}
+        gap={mode === 'horizontal' ? 32 : 48}
+        align={mode === 'horizontal' ? 'start' : 'center'}
+        wrap
+      >
         <Switch checked={isActive} onChange={handleSwitchChange} style={{ width: '44px' }} />
 
-        <div>
+        <Flex vertical style={{ width: '292' }}>
           <Space style={{ marginBottom: '6px' }}>
             <Button
               variant="solid"
@@ -95,27 +119,38 @@ export const CardComponent = ({ card, onChange }: CardComponentProp) => {
               {strategy}
             </Button>
           </Space>
-          <Space style={{ marginBottom: '16px' }} wrap>
+          <Space wrap>
             <p>{cardNumber}</p> <p style={{ color: '#6C6C6C' }}>{phoneNumber}</p>
           </Space>
-          <div>
-            <Space style={{ color: '#D29B3C' }}>
-              <UserOutlined />
-              <p>{owner}</p>
-            </Space>
-          </div>
+        </Flex>
+
+        <div style={{ width: '160px' }}>
+          <p style={mode === 'horizontal' ? holderNone : holderBlock}>Holder</p>
+          <Space style={{ color: '#D29B3C' }}>
+            <UserOutlined />
+            <p>{owner}</p>
+          </Space>
         </div>
 
-        <Flex vertical gap={24}>
-          <Limit limitName="Daily limit" used={dailyLimit.used} max={dailyLimit.total} />
-          <Limit limitName="Monthly Limit" used={monthlyLimit.used} max={monthlyLimit.total} />
-          <Space>
-            <Progress type="circle" percent={+device.percent} strokeColor="#D29B3C" trailColor="#6C6C6C" size={46} />
-            <div style={{ marginLeft: '16px' }}>
-              <div style={{ color: '#6C6C6C' }}>{`Device (${device.available ? 'available' : 'Unavailable'})`}</div>
-              <div>{device.name ? `${device.name} • ${device.version}` : 'Not connected'}</div>
-            </div>
-          </Space>
+        <Flex vertical={mode === 'horizontal'} flex={'1 1 42%'} gap={16} className="responsive-flex">
+          <Limit
+            title="Daily limit"
+            percent={getPercentage(dailyLimit.used, dailyLimit.total)}
+            mode={mode}
+            content={`${formatNumber(dailyLimit.used)} / ${formatNumber(dailyLimit.total)} RUB`}
+          />
+          <Limit
+            title="Monthly Limit"
+            percent={getPercentage(monthlyLimit.used, monthlyLimit.total)}
+            mode={mode}
+            content={`${formatNumber(monthlyLimit.used)} / ${formatNumber(monthlyLimit.total)} RUB`}
+          />
+          <Limit
+            title={`Device (${device.available ? 'available' : 'unavailable'})`}
+            content={device.name ? `${device.name} • ${device.version}` : 'Not connected'}
+            percent={+device.percent}
+            mode={mode}
+          />
         </Flex>
       </Flex>
     </Card>
