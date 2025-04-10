@@ -7,6 +7,7 @@ import { Flex } from 'antd';
 import cardsraw from '../../data/cardsMock.json';
 import { CardModel } from '@/models/CardModel';
 import { CardComponent } from './components/CardComponent';
+import { sortCards } from '@/utils/sortCards';
 
 const counterStyle: CSSProperties = {
   display: 'inline-flex',
@@ -29,6 +30,8 @@ export const CardsOverview = () => {
   const [viewMode, setViewMode] = useState('');
   const [sortBy, setSortBy] = useState('');
 
+  const viewModeForStyles = viewMode || 'vertical';
+
   // isActive status of each card
   const [cardStatuses, setCardStatuses] = useState<Record<number, boolean>>(
     cardsMock.reduce(
@@ -41,10 +44,13 @@ export const CardsOverview = () => {
   );
 
   // Filter cards based on selectedStatus
-  const filteredCards = cardsMock.filter((card) => {
-    if (selectedStatus === '') return true;
-    return selectedStatus === 'active' ? cardStatuses[card.id] : !cardStatuses[card.id];
-  });
+  const filteredCards = sortCards(
+    cardsMock.filter((card) => {
+      if (selectedStatus === '') return true;
+      return selectedStatus === 'active' ? cardStatuses[card.id] : !cardStatuses[card.id];
+    }),
+    sortBy,
+  );
 
   const filterProps = {
     selectedBank,
@@ -88,20 +94,20 @@ export const CardsOverview = () => {
         {/* ACTIONS */}
         <Flex vertical={false} gap={12} wrap justify="center">
           <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-          <View viewMode={viewMode} setViewMode={setViewMode} />
+          <View viewMode={viewModeForStyles} setViewMode={setViewMode} />
           <Sort sortBy={sortBy} setSortBy={setSortBy} />
           <Filter {...filterProps} />
         </Flex>
       </Flex>
       {/* WRAPPER FOR CARDS */}
-      <Flex vertical={viewMode === 'vertical'} gap={12} wrap justify="center">
+      <Flex vertical={viewModeForStyles === 'vertical'} gap={12} wrap justify="center">
         {filteredCards &&
           filteredCards.map((card) => (
             <CardComponent
               key={`${card.id}_${card.cardNumber}`}
               card={{ ...card, isActive: cardStatuses[card.id] }}
               onChange={handleCardStatusChange}
-              mode={viewMode}
+              mode={viewModeForStyles}
             />
           ))}
       </Flex>

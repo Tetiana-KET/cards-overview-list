@@ -1,6 +1,6 @@
 import { BANKS } from '@/consts/BANKS';
 import { CardModel } from '@/models/CardModel';
-import { Button, Card, Flex, Progress, Space, Switch } from 'antd';
+import { Button, Card, Flex, Space, Switch } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { Limit } from './Limit';
 import { getPercentage } from '@/utils/getPersentage';
