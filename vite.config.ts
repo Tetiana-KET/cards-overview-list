@@ -18,7 +18,7 @@ export default defineConfig({
   build: {
     minify: 'esbuild',
   },
-  base: '',
+  base: '/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
