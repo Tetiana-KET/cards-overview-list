@@ -9,6 +9,7 @@ import { CardModel } from '@/models/CardModel';
 import { CardComponent } from './components/CardComponent';
 import { sortCards } from '@/utils/sortCards';
 import debounce from 'lodash.debounce';
+import { Tag } from '@/models/Tag';
 
 const counterStyle: CSSProperties = {
   display: 'inline-flex',
@@ -26,7 +27,7 @@ export const CardsOverview = () => {
   const [selectedStrategy, setSelectedStrategy] = useState('');
   const [selectedStatus, setSelectedStatus] = useState(''); // For filtering
   const [selectedCardType, setSelectedCardType] = useState('');
-  const [selectedTag, setSelectedTag] = useState('');
+  const [selectedTag, setSelectedTag] = useState<Tag | ''>('');
   const [viewMode, setViewMode] = useState('');
   const [sortBy, setSortBy] = useState('');
 
@@ -67,8 +68,9 @@ export const CardsOverview = () => {
           const bankFilter = selectedBank === '' || card.bank.toLowerCase() === selectedBank.toLowerCase();
           const strategyFilter =
             selectedStrategy === '' || card.strategy.toLowerCase() === selectedStrategy.toLowerCase();
+          const tagFilter = selectedTag === '' || card.tags.includes(selectedTag);
 
-          return statusFilter && bankFilter && strategyFilter;
+          return statusFilter && bankFilter && strategyFilter && tagFilter;
         }),
         sortBy,
       ),

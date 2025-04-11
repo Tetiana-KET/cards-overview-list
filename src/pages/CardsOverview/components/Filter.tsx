@@ -6,6 +6,7 @@ import { STRATEGIES } from '@/consts/STRATEGIES';
 import { STATUSES } from '@/consts/STATUSES';
 import { TAGS } from '@/consts/TAGS';
 import { CARD_TYPES } from '@/consts/CARD_TYPES';
+import { Tag } from '@/models/Tag';
 
 const { Option } = Select;
 
@@ -27,8 +28,8 @@ interface FilterProps {
   setSelectedStatus: (query: string) => void;
   selectedCardType: string;
   setSelectedCardType: (query: string) => void;
-  selectedTag: string;
-  setSelectedTag: (query: string) => void;
+  selectedTag: Tag | '';
+  setSelectedTag: (query: Tag | '') => void;
 }
 
 export const Filter = (props: FilterProps) => {
@@ -60,6 +61,7 @@ export const Filter = (props: FilterProps) => {
     setSelectedStrategy('');
     setSelectedStatus('');
     setSelectedCardType('');
+    setSelectedTag('');
     setVisible(false);
   };
 
@@ -99,7 +101,7 @@ export const Filter = (props: FilterProps) => {
               style={{ width: '100%', marginBottom: '10px' }}
             >
               {BANKS.map((bank) => (
-                <Option key={bank.name} value={bank.name.toLowerCase().replace(/\s+/g, '')}>
+                <Option key={bank.name} value={bank.name.toLowerCase()}>
                   {bank.name}
                 </Option>
               ))}
@@ -155,7 +157,7 @@ export const Filter = (props: FilterProps) => {
               style={{ width: '100%' }}
             >
               {Object.keys(TAGS).map((tag) => (
-                <Option key={tag} value={tag.toLowerCase()}>
+                <Option key={tag} value={tag as Tag}>
                   {tag}
                 </Option>
               ))}
