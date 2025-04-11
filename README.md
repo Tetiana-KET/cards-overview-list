@@ -83,6 +83,10 @@ This will start the application at http://localhost:5173 (or another available p
 
 ## Usage
 
+### Tags Configuration
+
+The available tags for cards are defined in the `TAGS` constant. `src/consts/TAGS`. If you need to add or remove tags in the future, simply modify the `TAGS` object, and the types will automatically reflect those changes.
+
 ## Support
 
 For any issues or questions, feel free to open an issue or reach out in any way that is comfortable for you.

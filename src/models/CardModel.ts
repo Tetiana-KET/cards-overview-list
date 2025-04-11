@@ -1,3 +1,5 @@
+import { Tag } from './Tag';
+
 export interface CardModel {
   id: number;
   bank: string;
@@ -19,8 +21,6 @@ export interface CardModel {
     available: boolean;
     percent: string;
   };
-  isNew: boolean;
-  isMax: boolean;
-  isSberPrime: boolean;
+  tags: Tag[];
   isActive: boolean;
 }

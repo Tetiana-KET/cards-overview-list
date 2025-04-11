@@ -5,6 +5,7 @@ import { UserOutlined } from '@ant-design/icons';
 import { Limit } from './Limit';
 import { getPercentage } from '@/utils/getPersentage';
 import { formatNumber } from '@/utils/formatNumber';
+import { TagLabel } from '@/components/ui/TagLabel';
 
 const cardGridStyle: React.CSSProperties = {
   flex: '1 1 23%',
@@ -36,21 +37,7 @@ interface CardComponentProp {
 }
 
 export const CardComponent = ({ card, onChange, mode }: CardComponentProp) => {
-  const {
-    id,
-    bank,
-    strategy,
-    cardNumber,
-    phoneNumber,
-    owner,
-    dailyLimit,
-    monthlyLimit,
-    device,
-    isNew,
-    isMax,
-    isSberPrime,
-    isActive,
-  } = card;
+  const { id, bank, strategy, cardNumber, phoneNumber, owner, dailyLimit, monthlyLimit, device, tags, isActive } = card;
 
   const handleSwitchChange = (checked: boolean) => {
     onChange(id, checked);
@@ -62,37 +49,9 @@ export const CardComponent = ({ card, onChange, mode }: CardComponentProp) => {
     <Card
       title={
         <Flex gap="small" wrap>
-          {isNew && (
-            <Button
-              color="green"
-              variant="filled"
-              size="small"
-              style={{ border: '1px solid green', pointerEvents: 'none' }}
-            >
-              New
-            </Button>
-          )}
-          {isMax && (
-            <Button
-              color="danger"
-              variant="filled"
-              size="small"
-              style={{ border: '1px solid red', pointerEvents: 'none' }}
-            >
-              Max
-            </Button>
-          )}
-
-          {isSberPrime && (
-            <Button
-              color="gold"
-              variant="filled"
-              size="small"
-              style={{ border: '1px solid gold', pointerEvents: 'none' }}
-            >
-              SberPrime+
-            </Button>
-          )}
+          {tags.map((tag) => (
+            <TagLabel key={tag} tag={tag} />
+          ))}
         </Flex>
       }
       style={mode === 'horizontal' ? cardGridStyle : cardListStyle}
