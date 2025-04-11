@@ -4,16 +4,16 @@ export const BANKS: { name: string; color: AntDColor; imgPath: string }[] = [
   {
     name: 'T-Bank',
     color: 'gold',
-    imgPath: '/icons/tbank.svg',
+    imgPath: '/tbank.svg',
   },
   {
     name: 'SberBank',
     color: 'green',
-    imgPath: '/icons/sberbank.svg',
+    imgPath: '/sberbank.svg',
   },
   {
     name: 'Alfa Bank',
     color: 'red',
-    imgPath: '/icons/alfabank.svg',
+    imgPath: '/alfabank.svg',
   },
 ];
