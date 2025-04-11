@@ -152,10 +152,17 @@ This will fix all fixable issues in your code (like formatting or minor rule vio
 To check if the production build looks OK in your local environment use:
 
 ```
+npm run build
 npm run preview
 ```
 
 This command uses vite preview to serve the production build locally. _Note: vite preview is intended for previewing the build locally, not as a production server._
+
+**Or use a one-liner:**
+
+```
+npm run preview:build
+```
 
 ### Prettier check
 
