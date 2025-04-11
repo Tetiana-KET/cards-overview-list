@@ -15,6 +15,7 @@ This project is an admin panel designed for managing and viewing various bank ca
 - Breadcrumb navigation works for easy page navigation.
 - Currently, there is only one functional page (the card/overview page), with a placeholder for other potential pages.
 - Search functionality with debounce implementation (using lodash).
+- The search feature finds matches based on the card owner's name, phone number, or card number.
 - Toggle between grid and list display modes via a select menu.
 - Filters available for daily and monthly limits (both ascending and descending).
 - Filters are also available for bank, strategy, and card status.
