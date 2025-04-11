@@ -20,9 +20,7 @@
       "percent": "76",
       "available": true
     },
-    "isNew": true,
-    "isMax": true,
-    "isSberPrime": false,
+    "tags": ["New", "Max"],
     "isActive": false
   },
   {
@@ -46,11 +44,8 @@
       "percent": "0",
       "available": false
     },
-    "isActive": true,
-
-    "isNew": false,
-    "isMax": false,
-    "isSberPrime": true
+    "tags": ["SberPrime"],
+    "isActive": true
   },
   {
     "id": 3,
@@ -73,9 +68,7 @@
       "percent": "55",
       "available": true
     },
-    "isNew": true,
-    "isMax": false,
-    "isSberPrime": false,
+    "tags": ["New"],
     "isActive": true
   },
   {
@@ -99,9 +92,7 @@
       "percent": "0",
       "available": false
     },
-    "isNew": true,
-    "isMax": true,
-    "isSberPrime": false,
+    "tags": ["New", "Max"],
     "isActive": true
   },
   {
@@ -125,9 +116,7 @@
       "percent": "67",
       "available": true
     },
-    "isNew": true,
-    "isMax": false,
-    "isSberPrime": true,
+    "tags": ["New", "SberPrime"],
     "isActive": true
   },
   {
@@ -151,9 +140,7 @@
       "percent": "11",
       "available": true
     },
-    "isNew": false,
-    "isMax": true,
-    "isSberPrime": false,
+    "tags": ["Max"],
     "isActive": true
   },
   {
@@ -177,9 +164,7 @@
       "percent": "23",
       "available": true
     },
-    "isNew": true,
-    "isMax": true,
-    "isSberPrime": true,
+    "tags": ["New", "Max", "SberPrime"],
     "isActive": true
   },
   {
@@ -203,9 +188,7 @@
       "percent": "0",
       "available": false
     },
-    "isNew": true,
-    "isMax": false,
-    "isSberPrime": false,
+    "tags": ["New"],
     "isActive": true
   },
   {
@@ -229,9 +212,7 @@
       "percent": "51",
       "available": true
     },
-    "isNew": true,
-    "isMax": false,
-    "isSberPrime": true,
+    "tags": ["New", "SberPrime"],
     "isActive": true
   },
   {
@@ -255,9 +236,7 @@
       "percent": "45",
       "available": true
     },
-    "isNew": false,
-    "isMax": true,
-    "isSberPrime": false,
+    "tags": ["Max", "Premium"],
     "isActive": true
   },
   {
@@ -281,9 +260,7 @@
       "percent": "72",
       "available": false
     },
-    "isNew": true,
-    "isMax": false,
-    "isSberPrime": true,
+    "tags": ["New", "SberPrime"],
     "isActive": true
   },
   {
@@ -307,9 +284,7 @@
       "percent": "15",
       "available": true
     },
-    "isNew": false,
-    "isMax": true,
-    "isSberPrime": false,
+    "tags": ["New", "Max", "Premium"],
     "isActive": true
   }
 ]

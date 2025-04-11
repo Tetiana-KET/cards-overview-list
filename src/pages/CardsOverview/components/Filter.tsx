@@ -52,7 +52,6 @@ export const Filter = (props: FilterProps) => {
   const [visible, setVisible] = useState(false);
 
   const handleApply = () => {
-    console.log('Apply filters');
     setVisible(false);
   };
 
@@ -61,7 +60,7 @@ export const Filter = (props: FilterProps) => {
     setSelectedStrategy('');
     setSelectedStatus('');
     setSelectedCardType('');
-    console.log('Filters reset');
+    setVisible(false);
   };
 
   const handleOpen = () => {
@@ -155,7 +154,7 @@ export const Filter = (props: FilterProps) => {
               placeholder="Tags"
               style={{ width: '100%' }}
             >
-              {TAGS.map((tag) => (
+              {Object.keys(TAGS).map((tag) => (
                 <Option key={tag} value={tag.toLowerCase()}>
                   {tag}
                 </Option>
