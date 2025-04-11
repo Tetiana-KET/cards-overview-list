@@ -20,6 +20,11 @@
   background: none !important;
 }
 
+sub.ant-menu-inline,
+:where(.css-1atsavp).ant-menu-light > .ant-menu.ant-menu-inline .ant-menu-sub.ant-menu-inline {
+  background: transparent;
+}
+
 :where(.css-dev-only-do-not-override-1atsavp).ant-select-single.ant-select-show-arrow .ant-select-selection-item,
 :where(.css-dev-only-do-not-override-1atsavp).ant-select-single.ant-select-show-arrow .ant-select-selection-search,
 :where(.css-dev-only-do-not-override-1atsavp).ant-select-single.ant-select-show-arrow

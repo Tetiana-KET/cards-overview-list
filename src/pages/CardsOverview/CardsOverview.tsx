@@ -132,7 +132,7 @@ export const CardsOverview = () => {
         {/* ACTIONS */}
         <Flex vertical={false} gap={12} wrap justify="center">
           <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-          <View viewMode={viewModeForStyles} setViewMode={setViewMode} />
+          <View viewMode={viewMode} setViewMode={setViewMode} />
           <Sort sortBy={sortBy} setSortBy={setSortBy} />
           <Filter {...filterProps} />
         </Flex>
