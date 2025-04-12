@@ -1,4 +1,4 @@
-import { CSSProperties, useEffect, useMemo, useState } from 'react';
+import { CSSProperties, lazy, Suspense, useEffect, useMemo, useState } from 'react';
 import { Search } from './components/Search';
 import { Sort } from './components/Sort';
 import { View } from './components/View';
@@ -6,10 +6,11 @@ import { Filter } from './components/Filter';
 import { Flex } from 'antd';
 import cardsraw from '../../data/cardsMock.json';
 import { CardModel } from '@/models/CardModel';
-import { CardComponent } from './components/CardComponent';
 import { sortCards } from '@/utils/sortCards';
 import debounce from 'lodash.debounce';
 import { Tag } from '@/models/Tag';
+import { FallbackSpinner } from '@/components/ui/FallbackSpinner';
+const CardsList = lazy(() => import('./components/CardsList'));
 
 const counterStyle: CSSProperties = {
   display: 'inline-flex',
@@ -113,6 +114,13 @@ export const CardsOverview = () => {
     console.log(`Card ID: ${id} active status updated to: ${checked}`);
   };
 
+  const cardsListProps = {
+    cardsToRender,
+    cardStatuses,
+    handleCardStatusChange,
+    viewModeForStyles,
+  };
+
   return (
     <Flex vertical gap={32}>
       {/* HEADER */}
@@ -138,17 +146,9 @@ export const CardsOverview = () => {
         </Flex>
       </Flex>
       {/* WRAPPER FOR CARDS */}
-      <Flex vertical={viewModeForStyles === 'vertical'} gap={12} wrap justify="center">
-        {cardsToRender &&
-          cardsToRender.map((card) => (
-            <CardComponent
-              key={`${card.id}_${card.cardNumber}`}
-              card={{ ...card, isActive: cardStatuses[card.id] }}
-              onChange={handleCardStatusChange}
-              mode={viewModeForStyles}
-            />
-          ))}
-      </Flex>
+      <Suspense fallback={<FallbackSpinner />}>
+        <CardsList {...cardsListProps} />
+      </Suspense>
     </Flex>
   );
 };
