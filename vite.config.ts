@@ -17,6 +17,15 @@ export default defineConfig({
   },
   build: {
     minify: 'esbuild',
+    chunkSizeWarningLimit: 600,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ['react', 'react-dom'],
+          antd: ['antd'],
+        },
+      },
+    },
   },
   base: '/',
   resolve: {
